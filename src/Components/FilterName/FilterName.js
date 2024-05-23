@@ -1,16 +1,24 @@
 import React from 'react';
-import { Form } from 'react-bootstrap';
+import {Form} from 'react-bootstrap';
 
-const FilterName = (inputSearch, setInputSearch) => {
-  return (
-    <div>
-        
-      <Form.Control type="text"
-       placeholder='Enter email'
-        value={inputSearch}
-        onChange={(e) => setInputSearch(e.target.value)} />
-    </div>
-  )
-}
+const FilterName = ({inputSearch, setInputSearch }) => {
+   return ( 
+    <div className='BarFilter'>
 
-export default FilterName
+<Form.Control
+
+type='text'
+placeholder='Enter Movie Title'
+value={inputSearch}
+onChange = {(e) => setInputSearch(e.target.value)}
+
+/>
+
+</div> 
+
+
+
+  );
+};
+
+export default FilterName;

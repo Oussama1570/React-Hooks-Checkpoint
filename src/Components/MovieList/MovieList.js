@@ -6,7 +6,8 @@ const MovieList = ({ movies, inputSearch, rating }) => {
   return (
     <div className='movieList'>
       {movies
-        .filter((movie) =>
+        .filter(
+          (movie) =>
           movie.title.toUpperCase().includes(inputSearch.toUpperCase())
         && 
         movie.rate >= rating

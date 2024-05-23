@@ -62,11 +62,11 @@ const handleAdd = (e) => {
 
 
   return (
-    <div>
+    <div className='AddFilter'>
 
 
 
-<Button variant="primary" onClick={handleShow}>
+<Button variant="dark" onClick={handleShow} > 
         Add Movie
       </Button>
 
@@ -92,7 +92,7 @@ const handleAdd = (e) => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleAdd()}>
+          <Button variant="primary" onClick={(e) => handleAdd()}>
             Save Changes
           </Button>
         </Modal.Footer>

@@ -1,19 +1,15 @@
 import React from 'react';
-
-import Card from 'react-bootstrap/Card';
-import Rating from '../Rate/Rating';
+import { Card, Button} from "react-bootstrap";
 import MovieRating from "../Rate/Rating"
 
 
 
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 
 
 
 const MovieCard = ({movie}) => {
   return (
-    <div>
+    <div className='Cards'>
       <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={movie.posterUrl} />
       <Card.Body>
@@ -25,7 +21,7 @@ const MovieCard = ({movie}) => {
           {movie.rate}
         </Card.Text>
         <MovieRating isMovieRating={true} MovieRating={movie.rate}/>
-        <Button variant="primary">Go somewhere</Button>
+        <Button variant="primary">See More</Button>
       </Card.Body>
     </Card>
     </div>

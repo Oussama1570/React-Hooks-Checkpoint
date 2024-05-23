@@ -1,29 +1,32 @@
-import { useState } from "react";
-import React from "react";
-import {Rate} from "antd";
+import React from 'react'
+import { Rate } from 'antd'
 
+const Rating = ({Rating, isMovieRating, setRating, movieRating}) => { 
 
-const Rating = ({rating, isMovieRating, setRating, movieRating }) => {
-  const handleChange = (value) => {
-    setRating(value);
-   };
+    const handleChange = (value) =>  { 
 
-
+        setRating (value);
+    };
 
   return isMovieRating ? (
     <div>
-          
-      <Rate disabled Value={movieRating}/>
+      
+<Rate disabled value = {movieRating} />
 
-      </div>
-    
-) : (
-
-  <div>
-      <Rate onChange={handleChange} Value={rating}/>
-    
     </div>
+
+  ) : ( 
+
+
+<div>
+      
+      <Rate onChange={handleChange} value = {Rating} />
+      
+          </div>
+
+
+
   );
 };
 
-export default Rating;
+export default Rating

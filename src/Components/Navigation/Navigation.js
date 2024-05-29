@@ -1,42 +1,55 @@
-import React from 'react'
-import Navbar from 'react-bootstrap/Navbar';
-import Form from 'react-bootstrap/Form';
+import React from "react";
 import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
 
 const Navigation = () => {
-  return (
-    <div>
-      <Navbar className="bg-danger text-white justify-content-between">
-      <Form inline>
-        <InputGroup>
-          <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
-          <Form.Control
-            placeholder="Username"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-          />
-        </InputGroup>
-      </Form>
-      <Form inline>
-        <Row>
-          <Col xs="auto">
+	return (
+		<div>
+			
+
+      <Navbar expand="lx" className="bg-danger text-white"  >
+      <Container fluid>
+        <Navbar.Brand href="/">Media Movie App</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 my-lg-0"
+            style={{ maxHeight: '100px' }}
+            navbarScroll
+          >
+            <Nav.Link href="/">Home</Nav.Link>
+          
+            
+            
+          </Nav>
+          <Form className="d-flex">
             <Form.Control
-              type="text"
-              placeholder="Search"
-              className=" mr-sm-2"
+              type="search"
+              placeholder="Search for"
+              className="me-2"
+              aria-label="Search"
             />
-          </Col>
-          <Col xs="auto">
-          <Button variant="success">Searching for</Button>
-          </Col>
-        </Row>
-      </Form>
+            <Button variant="outline-success">Search for Movie</Button>
+          </Form>
+        </Navbar.Collapse>
+      </Container>
     </Navbar>
-    </div>
-  );
+
+
+
+		</div>
+	);
 };
 
-export default Navigation
+
+
+
+
+
+
+export default Navigation;

@@ -1,118 +1,88 @@
-import { useState } from 'react';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Title from 'antd/es/skeleton/Title';
-import { Rate } from 'antd';
-
-
+import React, { useState } from "react";
+import { Button, Modal, Form } from "react-bootstrap";
+import './AddMovie.css'
 
 const AddMovie = ({ add }) => {
-  
+	const [show, setShow] = useState(false);
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
 
-  
-  const [show, setShow] = useState(false);
+	// initialState
+	const [title, setTitle] = useState("");
+	const [description, setDescription] = useState("");
+	const [rate, setRate] = useState("");
+	const [posterUrl, setPosterUrl] = useState("");
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+	// update state
+	const handleTilte = (e) => {
+		setTitle(e.target.value);
+	};
+	const handleDescription = (e) => {
+		setDescription(e.target.value);
+	};
+	const handleRate = (e) => {
+		setRate(e.target.value);
+	};
+	const handlePoster = (e) => {
+		setPosterUrl(e.target.value);
+	};
 
-
-  // initialisation : 
-
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [rate, setRate] = useState("");
-  const [poster, setPoster] = useState("");
- 
-
-
-// update state:
-
-
-const handleTitle = (e) => { 
-  setTitle(e.target.value)
-};
-
-
-const handDescription = (e) => { 
-  setDescription(e.target.value)
-};
-
-
-
-const handleRate = (e) => { 
-  setRate(e.target.value)
-};
-
-
-
-const handlePoster = (e) => { 
-  setPoster(e.target.value)
-};
-
-
-
-// function add :
-
-const handleAdd = (e) => {
-
-   let newMovie = { title, description, rate, poster};
-    add(newMovie);
-}
-
-
-  return (
-    <div className='AddFilter'>
-
-
-
-<Button variant="dark" onClick={handleShow} > 
-        Add Movie
-      </Button>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Add Movie</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-        <Form.Label>Title</Form.Label>
-        <Form.Control type="text" placeholder="Enter Title"  value={title}  onChange={(e) => handleTitle(e)}/>
-
-        <Form.Label>Description</Form.Label>
-        <Form.Control type="email" placeholder="Enter description" value={description}  onChange={(e) => handDescription(e)} />
-
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="number" placeholder="Enter rate"  value={rate}  onChange={(e) => handleRate(e)}/>
-
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="url" placeholder="Enter poster" value={poster}  onChange={(e) => handlePoster(e)} />
-
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={(e) => handleAdd()}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  );
+	// function add movie
+	const handleMovie = (e) => {
+		let newMovie = { title, description, rate, posterUrl };
+		add(newMovie);
+		handleClose();
+	};
+	return (
+		<div>
+			<Button variant='primary' onClick={handleShow} className="BtnAdd">
+				Add Movie
+			</Button>
+			<Modal show={show} onHide={handleClose}>
+				<Modal.Header closeButton>
+					<Modal.Title>Modal heading</Modal.Title>
+				</Modal.Header>
+				<Modal.Body>
+					<Form.Label>Movie Title</Form.Label>
+					<Form.Control
+						type='text'
+						placeholder='Enter title'
+						vaule={title}
+						onChange={(e) => handleTilte(e)}
+					/>
+					<Form.Label>Description</Form.Label>
+					<Form.Control
+						type='text'
+						placeholder='Enter description'
+						value={description}
+						onChange={(e) => handleDescription(e)}
+					/>
+					<Form.Label>Rate</Form.Label>
+					<Form.Control
+						type='number'
+						placeholder='Enter rate'
+						value={rate}
+						onChange={(e) => handleRate(e)}
+					/>
+					<Form.Label>PosterUrl</Form.Label>
+					<Form.Control
+						type='url'
+						placeholder='Enter potser url'
+						value={posterUrl}
+						onChange={(e) => handlePoster(e)}
+					/>
+				</Modal.Body>
+				<Modal.Footer>
+					<Button variant='secondary' onClick={handleClose}>
+						Close
+					</Button>
+					<Button variant='primary' onClick={() => handleMovie()}>
+						Save Changes
+					</Button>
+				</Modal.Footer>
+			</Modal>
+		</div>
+	);
 };
 
 export default AddMovie;
